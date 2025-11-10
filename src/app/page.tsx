@@ -1,65 +1,41 @@
-import Image from "next/image";
+
+import PlagesAutorisees from "../components/PlagesAutorisees";
+import PrelevementsSection, { AproposSection } from "../components/PrelevementsSection";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #e0f7fa 0%, #fff 100%)', padding: '0', margin: '0' }}>
+      <main style={{
+        maxWidth: '600px',
+        margin: '0 auto',
+        background: 'rgba(255,255,255,0.95)',
+        borderRadius: '18px',
+        boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
+        padding: '2.5em 2em',
+        marginTop: '4em',
+        marginBottom: '4em',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}>
+        <h1 style={{ fontSize: '2.3em', fontWeight: 700, color: '#0077b6', marginBottom: '0.3em', textAlign: 'center', letterSpacing: '0.02em' }}>
+          Qualité des eaux de baignade à Nouméa
+        </h1>
+        <p style={{ fontSize: '1.15em', color: '#333', marginBottom: '2em', textAlign: 'center', maxWidth: '500px' }}>
+          Retrouvez la liste des plages de Nouméa et l'état sanitaire de la baignade, mis à jour à partir des données publiques.
+        </p>
+  <section style={{ width: '100%', background: '#f1f8ff', borderRadius: '14px', padding: '2em 1.5em', marginBottom: '3em', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+    <h2 style={{ color: '#0077b6', fontSize: '1.25em', marginBottom: '1em', textAlign: 'center' }}>Plages autorisées à la baignade</h2>
+    <PlagesAutorisees />
+  </section>
+  <section style={{ width: '100%', background: '#fff', borderRadius: '14px', padding: '2em 1.5em', marginBottom: '3em', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+    <PrelevementsSection />
+  </section>
       </main>
+      <AproposSection />
+      <footer style={{ textAlign: 'center', color: '#888', fontSize: '0.95em', marginBottom: '1em' }}>
+        Données issues du <a href="https://github.com/adriens/edb-noumea-data" target="_blank" rel="noopener noreferrer" style={{ color: '#0077b6', textDecoration: 'underline' }}>projet edb-noumea-data</a>.
+      </footer>
     </div>
   );
 }
